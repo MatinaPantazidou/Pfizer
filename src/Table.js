@@ -2,6 +2,7 @@ import React from "react";
 import { Table,Container, Button } from 'react-bootstrap';
 import { Spin } from "antd";
 import useCharacters from "./MyData";
+import { Link } from "react-router-dom";
 
 const MyTable = () => {
     const [characters, isLoading] = useCharacters({
@@ -28,19 +29,19 @@ const MyTable = () => {
                         <Spin size="large" />
                       ) : (
                         characters.map(({ id, title, price, open, dates }) => (
-                            <tr>
+                            <tr key = {id}>
                             <td>{title}</td>
                             <td>{open}</td>
                             <td>{price.normal}</td>
                             <td>{dates.start_date} to {dates.end_date} </td>
-                            <td><Button variant="info">View details</Button>{' '} </td>
+                            <td><Link to={`/Course/${id}`}><Button variant="info">View details </Button>{' '} </Link></td>
                             </tr>
-                            
                         ))
                         
                       )}
                 </tbody>
                 </Table>
+
         </Container>
             
                     
