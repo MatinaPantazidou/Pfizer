@@ -1,6 +1,7 @@
 import React from "react";
-import { Card, Spin, Row, Col } from "antd";
+import { Card, Spin } from "antd";
 import useCharacters from "./MyData";
+import { Container, Row, Col } from "react-bootstrap";
 
 
 const StatsList = () => {
@@ -12,7 +13,8 @@ const StatsList = () => {
   
   return (
       
-      <Row justify="space-around" style = {{ marginTop: "50px" }}>
+      <Container fluid>
+            <Row  style = {{ marginTop: "50px" }}>
         {isLoading ? (
           <Spin size="large" />
         ) : (
@@ -24,10 +26,11 @@ const StatsList = () => {
                 </p>
                 </Card>
             </Col>
-            
           ))
         )}
       </Row>
+      </Container>
+  
 
   );
 };

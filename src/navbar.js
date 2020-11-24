@@ -18,7 +18,7 @@ const AppHeader = () => (
     <Content style={{ backgroundColor: "white"}}>
     <br />
       <div className="site-layout-content" ><p style={{ fontSize: "45px" }}>Welcome to Code.Hub Dashboard!!</p>
-      <p style={{ fontSize: "20px" }}>Manage everything abd have fun!</p></div>
+      <p style={{ fontSize: "20px" }}>Manage everything and have fun!</p></div>
     </Content>
 </Layout>
 
