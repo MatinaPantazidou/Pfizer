@@ -5,7 +5,7 @@ import useCharacters from "./MyData";
 import { Link } from "react-router-dom";
 
 const MyTable = () => {
-    const [characters, isLoading] = useCharacters({
+    const [characters, isLoading, showItems] = useCharacters({
       url: "http://localhost:3001",
       format: "json",
       resource: "courses",
@@ -13,7 +13,9 @@ const MyTable = () => {
 
     return (
         <Container fluid>
+            
             <Table striped bordered hover style = {{marginTop: "30px"}}>
+            <caption><span style = {{ marginLeft: "10px" }}>Last 3 Courses</span></caption>
                 <thead>
                     <tr>
                     <th><b>Title</b></th>
@@ -28,13 +30,13 @@ const MyTable = () => {
                 {isLoading ? (
                         <Spin size="large" />
                       ) : (
-                        characters.map(({ id, title, price, open, dates }) => (
-                            <tr key = {id}>
-                            <td>{title}</td>
-                            <td>{open}</td>
-                            <td>{price?.normal}</td>
-                            <td>{dates?.start_date} to {dates?.end_date} </td>
-                            <td><Link to={`/Course/${id}`}><Button variant="info">View details </Button>{' '} </Link></td>
+                        characters.slice(-3).map(({ ...courses }) => (
+                            <tr key = {courses.id}>
+                            <td>{courses.title}</td>
+                            <td>{courses.open}</td>
+                            <td>{courses.price?.normal}</td>
+                            <td>{courses.dates?.start_date} to {courses.dates?.end_date} </td>
+                            <td><Link to={`/Course/${courses.id}`}><Button variant="info">View details </Button>{' '} </Link></td>
                             </tr>
                         ))
                         

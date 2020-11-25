@@ -22,7 +22,7 @@ const StatsList = () => {
                 <Col span={4}>
                 <Card type="inner" key={id} style = {{ border: "1px solid rgb(200,200,200)" }}>
                 <p>
-                    <span style = {{ fontSize: "20px" }}>{title}</span> : <span className="amount" >{amount}</span> 
+                    <span style = {{ fontSize: "18px" }}>{title.toUpperCase()}</span> : <span className="amount" >{amount}</span> 
                 </p>
                 </Card>
             </Col>

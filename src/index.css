@@ -69,3 +69,16 @@ code {
   border-radius: 7%;
   font-weight: bold;
 }
+
+.ant-card-type-inner .ant-card-body {
+  padding: 15px 0 0 20px !important;
+}
+
+caption {
+  caption-side: top;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid rgb(224,224,224);
+  background-color: #dee2e6;
+  border-bottom: none;
+}
