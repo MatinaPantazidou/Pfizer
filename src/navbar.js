@@ -1,12 +1,12 @@
 import { Layout, Menu } from 'antd';
 import { Link } from "react-router-dom";
-
+import { Container } from 'react-bootstrap';
 
 
 const { Header, Content } = Layout;
 
 const AppHeader = () => (
-<Layout className="layout">
+<Container fluid>
     <Header style={{ backgroundColor: "rgb(56,56,56)",  }}>
       <Menu style={{ backgroundColor: "rgb(56,56,56)" }} mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1" className="menitemone" >Code.Hub Dashboard <Link to="/About"/> </Menu.Item>
@@ -20,7 +20,7 @@ const AppHeader = () => (
       <div className="site-layout-content" ><p style={{ fontSize: "45px" }}>Welcome to Code.Hub Dashboard!!</p>
       <p style={{ fontSize: "20px" }}>Manage everything and have fun!</p></div>
     </Content>
-</Layout>
+</Container>
 
 
   );

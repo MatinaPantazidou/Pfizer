@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import './App.css';
 
-import { Container, Col, Form, Row, FormGroup, Label, Input, Button } from 'reactstrap';
-import { Collapse, Navbar,Nav,NavItem, NavLink} from 'reactstrap';
+import { Container, Col, Form,  FormGroup, Label, Input, Button } from 'reactstrap';
+import { Navbar,Nav,NavItem, NavLink} from 'reactstrap';
 export class Test extends Component {
         render() {
                 return (

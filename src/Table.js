@@ -32,8 +32,8 @@ const MyTable = () => {
                             <tr key = {id}>
                             <td>{title}</td>
                             <td>{open}</td>
-                            <td>{price.normal}</td>
-                            <td>{dates.start_date} to {dates.end_date} </td>
+                            <td>{price?.normal}</td>
+                            <td>{dates?.start_date} to {dates?.end_date} </td>
                             <td><Link to={`/Course/${id}`}><Button variant="info">View details </Button>{' '} </Link></td>
                             </tr>
                         ))
@@ -41,7 +41,7 @@ const MyTable = () => {
                       )}
                 </tbody>
                 </Table>
-
+            <br /> <hr />
         </Container>
             
                     
