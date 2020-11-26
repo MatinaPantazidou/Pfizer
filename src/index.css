@@ -82,3 +82,12 @@ caption {
   background-color: #dee2e6;
   border-bottom: none;
 }
+
+.newNav{
+  text-align: right;
+}
+
+.card-header:first-child {
+  font-size: 30px;
+}
+

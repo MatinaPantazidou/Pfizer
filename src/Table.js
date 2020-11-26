@@ -5,7 +5,7 @@ import useCharacters from "./MyData";
 import { Link } from "react-router-dom";
 
 const MyTable = () => {
-    const [characters, isLoading, showItems] = useCharacters({
+    const [characters, isLoading] = useCharacters({
       url: "http://localhost:3001",
       format: "json",
       resource: "courses",
@@ -13,7 +13,7 @@ const MyTable = () => {
 
     return (
         <Container fluid>
-            
+         
             <Table striped bordered hover style = {{marginTop: "30px"}}>
             <caption><span style = {{ marginLeft: "10px" }}>Last 3 Courses</span></caption>
                 <thead>
@@ -33,8 +33,8 @@ const MyTable = () => {
                         characters.slice(-3).map(({ ...courses }) => (
                             <tr key = {courses.id}>
                             <td>{courses.title}</td>
-                            <td>{courses.open}</td>
-                            <td>{courses.price?.normal}</td>
+                            <td style = {{color: "green", fontSize: "25px"}}>{courses.open ? "✔" : "✘"}</td>
+                            <td>{courses.price?.normal}&#8364;</td>
                             <td>{courses.dates?.start_date} to {courses.dates?.end_date} </td>
                             <td><Link to={`/Course/${courses.id}`}><Button variant="info">View details </Button>{' '} </Link></td>
                             </tr>
@@ -45,11 +45,7 @@ const MyTable = () => {
                 </Table>
             <br /> <hr />
         </Container>
-            
-                    
-                   
-
-
+       
       ) //return
     
     
