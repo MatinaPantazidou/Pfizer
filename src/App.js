@@ -4,6 +4,7 @@ import Home from "./Home";
 import About from "./About";
 import Course from "./Course";
 import allCourses from "./allCourses";
+import AddCourse from "./PostCourse";
 
 
 const App = () => {
@@ -14,6 +15,8 @@ const App = () => {
         <Route exact path = "/About" component={About} />
         <Route exact path = "/Course/:id" component={Course} />
         <Route exact path = "/allCourses" component={allCourses} />
+        {/* <Route exact path = "/AddCourse" component={AddCourse} /> */}
+        <Route exact path = "/PostCourse" component={AddCourse} />
         
       </div>
     
