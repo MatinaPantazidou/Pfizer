@@ -43,6 +43,9 @@ const MyTable = () => {
                       )}
                 </tbody>
                 </Table>
+
+                <Link to="/allCourses"><Button variant="primary" style = {{float: "right"}}>View all </Button>{' '} </Link>
+
             <br /> <hr />
         </Container>
        

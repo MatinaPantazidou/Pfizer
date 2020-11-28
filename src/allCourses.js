@@ -3,6 +3,8 @@ import { Spin } from "antd";
 import useCharacters from "./MyData";
 import { Container, Row, Col, Navbar, Nav, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import Header from "./navbar";
+import Footer from "./MyFooter";
 
 
 const AllCourses = () => {
@@ -16,16 +18,7 @@ const AllCourses = () => {
         
     <Container fluid>
         {/* Navbar on top */}
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand href="#home">Code.Hub Dashboard</Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="ml-auto">
-            <Nav.Link href="#deets" className="newNav">Courses</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes" className="newNav">Add new course </Nav.Link>
-            </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+       <Header />
         
         <br />
         {/* Main info of the course*/}
@@ -54,10 +47,10 @@ const AllCourses = () => {
         )}
             </Row>
         
-
+            <Footer />
     </Container>
     
-  
+    
     );
   };
   

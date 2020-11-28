@@ -9,9 +9,9 @@ const AppHeader = () => (
 <Container fluid>
     <Header style={{ backgroundColor: "rgb(56,56,56)",  }}>
       <Menu style={{ backgroundColor: "rgb(56,56,56)" }} mode="horizontal" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1" className="menitemone" >Code.Hub Dashboard <Link to="/About"/> </Menu.Item>
-        <Menu.Item key="2" className="menitem" >Add new course </Menu.Item>
-        <Menu.Item key="3" className="menitem">Courses</Menu.Item>
+        <Menu.Item key="1" className="menitemone" >Code.Hub Dashboard <Link to="/"/> </Menu.Item>
+        <Menu.Item key="2" className="menitem" >Add new course <Link to="/PostCourse"/> </Menu.Item>
+        <Menu.Item key="3" className="menitem">Courses <Link to="/allCourses"/></Menu.Item>
       </Menu>
     </Header>
 

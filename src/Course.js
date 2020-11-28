@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Container, Navbar, Nav, Card, Button } from 'react-bootstrap';
+import { Container, Card, Button } from 'react-bootstrap';
+import Header from "./navbar";
+import { Image } from "react-bootstrap";
+
+
 
 const useFetch = (url, defaultData) => {
   const [data, updateData] = useState(defaultData);
@@ -31,30 +35,25 @@ const Course = () => {
     yield result.instructors;
 };
 
-const johnDev = { ...result.instructors };
-console.log(johnDev)
-const instrone = johnDev[0];
-const instrtwo = johnDev[1];
+const newInstr = { ...result.instructors };
+console.log(newInstr)
+const instrone = newInstr[0];
+const instrtwo = newInstr[1];
 const sum  = instrone + instrtwo;
 console.log(sum)
+const pic = result.imagePath;
+console.log(pic)
 
 
    return (
     <Container fluid>
       {/* Navbar on top */}
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Code.Hub Dashboard</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-        <Nav className="ml-auto">
-          <Nav.Link href="#deets" className="newNav">Courses</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes" className="newNav">Add new course </Nav.Link>
-        </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      
+      <Header />
+     
       {/* Main info of the course*/}
         <Card className="mt-5">
+        
+        <Card.Img as={Image} src={pic} fluid={true} alt="Card image" />
           <Card.Header>{result.title} ({result.id})</Card.Header>
           <Card.Body>
             <Card.Text>

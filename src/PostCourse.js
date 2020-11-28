@@ -1,30 +1,55 @@
-import React, { Fragment, useState } from "react";
-import {Button} from 'react-bootstrap';
-import { useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, { Fragment, useState, useEffect, useCallback } from "react";
+import {Button, Spinner, Alert} from 'react-bootstrap';
+import { useHistory, useParams, Link } from "react-router-dom";
 import {API} from './API';
 import axios from 'axios';
 
+ const AddCourse = (addCourse) => {
 
-
- const AddCourse = (addContact) => {
+  const [courses, setCourses] = useState([]);
   const [title, setTitle] = useState("");
   const [imagePath, setImage] = useState("");
   const [description, setDescr] = useState("");
   let history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  //const { id } = useParams();
 
-  
-      
-  addContact = async (data) => {
+  const fetchData = useCallback(() => {
+    setError(false);
+    setIsLoading(true);
+
+    axios.get(API)
+      .then(response => {
+        setCourses(response.data);
+          setIsLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setIsLoading(false);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData])
+
+   addCourse = async (data) => {
     const newData = {
       ...data,
-      //id: Math.max(...characters.courses.map(({id}) => id)) + 1
+      id: Math.max(...courses.map(({id}) => id)) + 1
       
     }
     await axios.post(API, newData);
     history.push("/");
      };
-  
+
+     if (isLoading) {
+        return <Spinner animation="border" size="lg" />;
+      }
+      if (error) {
+        return <Alert variant="warning">{error.message}</Alert>;
+      }
 
   return (
     <Fragment>
@@ -75,7 +100,7 @@ import axios from 'axios';
               placeholder="Enter designation"
             />
           </div>
-          <Button variant="primary" onClick={() => {addContact({title, imagePath, description})}}>
+          <Button variant="primary" onClick={() => {addCourse({title, imagePath, description})}}>
           Add
         </Button>
           <div className="text-center mt-4 text-gray-500">
