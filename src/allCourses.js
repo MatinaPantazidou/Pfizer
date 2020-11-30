@@ -1,10 +1,11 @@
 import React from "react";
 import { Spin } from "antd";
 import useCharacters from "./MyData";
-import { Container, Row, Col, Navbar, Nav, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Header from "./navbar";
 import Footer from "./MyFooter";
+import { Image } from "react-bootstrap";
 
 
 const AllCourses = () => {
@@ -14,6 +15,7 @@ const AllCourses = () => {
       resource: "courses",
     });
     
+  
     return (
         
     <Container fluid>
@@ -30,6 +32,7 @@ const AllCourses = () => {
           characters.map(({ ...courses }) => (
                 <Col className ="d-flex align-self-stretch">
                 <Card className = "w-100">
+                <Card.Img as={Image} src={courses.imagePath} fluid={true} alt="Card image" />
                 <Card.Header>{courses.title}</Card.Header>
                 <Card.Body>
                     <Card.Text>

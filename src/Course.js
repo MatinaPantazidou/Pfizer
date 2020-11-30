@@ -27,22 +27,16 @@ const Course = () => {
   const { id } = useParams();
   const URL = `http://localhost:3001/courses/${id}`;
   const result = useFetch(URL, {});
-  //console.log(result.instructors)
-
-  //const array = [...result.instructors];
-  //console.log(array[0])
-  const elements1 = function* () {
-    yield result.instructors;
-};
+  const URL1 = `http://localhost:3001/instructors`;
+  const instructors = useFetch(URL1, []);
+  
+ 
 
 const newInstr = { ...result.instructors };
-console.log(newInstr)
-const instrone = newInstr[0];
-const instrtwo = newInstr[1];
-const sum  = instrone + instrtwo;
-console.log(sum)
+const selectedInstructors = instructors && instructors.filter(instructor => result.instructors.includes(instructor.id) )
+console.log(selectedInstructors)
 const pic = result.imagePath;
-console.log(pic)
+
 
 
    return (
@@ -51,9 +45,9 @@ console.log(pic)
       <Header />
      
       {/* Main info of the course*/}
-        <Card className="mt-5">
+        <Card className="mt-5" >
         
-        <Card.Img as={Image} src={pic} fluid={true} alt="Card image" />
+        <Card.Img as={Image} src={pic} fluid={true} alt="Card image" style={{ width: "90rem", height: "17rem"}} />
           <Card.Header>{result.title} ({result.id})</Card.Header>
           <Card.Body>
             <Card.Text>
@@ -70,19 +64,16 @@ console.log(pic)
 
             <br /><br />
             <h1>{result.instructors}</h1>
-            <p>
-        {instrone ? "John" : "Kostas" }
-      </p>
-          </Card.Body>
+           </Card.Body>
         </Card>
-      <br /><hr />
-      
-      <p>{[...elements1()]}</p>
-      {instrtwo ? instrone+instrtwo : "00"}
-      
-      {instrtwo && <p>nai!!</p>}
+      <br /><hr />  
 
-      
+      <div>
+    {selectedInstructors.map((person, index) => (
+        <p key={index}>Hello, {person.id} from {person.name.first}!</p>
+    ))}
+    </div>
+
 
     </Container>
 
