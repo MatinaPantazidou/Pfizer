@@ -30,14 +30,14 @@ const AllCourses = () => {
           <Spin size="large" />
         ) : (
           characters.map(({ ...courses }) => (
-                <Col className ="d-flex align-self-stretch">
-                <Card className = "w-100">
+                <Col md={3} className ="d-flex align-self-stretch">
+                <Card className = "w-100 mt-3">
                 <Card.Img as={Image} src={courses.imagePath} fluid={true} alt="Card image" />
                 <Card.Header>{courses.title}</Card.Header>
                 <Card.Body>
                     <Card.Text>
-                        <p>Price: <b>{courses.price.normal}&#8364;</b> | 
-                        Bookable: <span style = {{color: "green"}}>{courses.open ? "✔" : "✘"}</span></p>
+                        <p>Price: <b>{courses.price?.normal}&#8364;</b> | 
+                        Bookable: <span style = {{color: "green"}}>{courses.open==="false" ? <span style = {{color: "red"}}>✘</span> : "✔"}</span></p>
                         <p>Duration: <b>{courses.duration}</b></p>
                         <p>Dates: {courses.dates?.start_date} <b>to</b> {courses.dates?.end_date}</p>
                     </Card.Text>

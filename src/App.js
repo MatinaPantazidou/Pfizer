@@ -5,6 +5,7 @@ import About from "./About";
 import Course from "./Course";
 import allCourses from "./allCourses";
 import AddCourse from "./PostCourse";
+import Update from "./Update";
 
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
         <Route exact path = "/allCourses" component={allCourses} />
         {/* <Route exact path = "/AddCourse" component={AddCourse} /> */}
         <Route exact path = "/PostCourse" component={AddCourse} />
+        <Route exact path = "/Update/:id" component={Update} />
         
       </div>
     

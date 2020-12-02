@@ -33,7 +33,7 @@ const MyTable = () => {
                         characters.slice(-3).map(({ ...courses }) => (
                             <tr key = {courses.id}>
                             <td>{courses.title}</td>
-                            <td style = {{color: "green", fontSize: "25px"}}>{courses.open ? "✔" : "✘"}</td>
+                            <td style = {{color: "green", fontSize: "25px"}}>{courses.open==="false" ? <span style = {{color: "red"}}>✘</span> : "✔"}</td>
                             <td>{courses.price?.normal}&#8364;</td>
                             <td>{courses.dates?.start_date} to {courses.dates?.end_date} </td>
                             <td><Link to={`/Course/${courses.id}`}><Button variant="info">View details </Button>{' '} </Link></td>

@@ -6,7 +6,7 @@ import { Container } from 'react-bootstrap';
 const { Header, Content } = Layout;
 
 const AppHeader = () => (
-<Container fluid>
+<Container fluid style = {{ padding: "0"}}>
     <Header style={{ backgroundColor: "rgb(56,56,56)",  }}>
       <Menu style={{ backgroundColor: "rgb(56,56,56)" }} mode="horizontal" defaultSelectedKeys={['1']}>
         <Menu.Item key="1" className="menitemone" >Code.Hub Dashboard <Link to="/"/> </Menu.Item>
@@ -15,11 +15,7 @@ const AppHeader = () => (
       </Menu>
     </Header>
 
-    <Content style={{ backgroundColor: "white"}}>
-    <br />
-      <div className="site-layout-content" ><p style={{ fontSize: "45px" }}>Welcome to Code.Hub Dashboard!!</p>
-      <p style={{ fontSize: "20px" }}>Manage everything and have fun!</p></div>
-    </Content>
+    
 </Container>
 
 
